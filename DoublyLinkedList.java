@@ -140,10 +140,14 @@ public class DoublyLinkedList<E> {
             currentNode = nextNode;
         }
         // join the 2 linked lists
-        if (secondHead != null){
+        if (secondHead != null){ // second list not empty
             nullTail.setNext(secondHead);
             secondHead.setPrev(nullTail);
             secondTail.setNext(trailer);
+            trailer.setPrev(secondTail);
+        } else { // second list empty
+            nullTail.setNext(trailer);
+            trailer.setPrev(nullTail);
         }
 
     }
